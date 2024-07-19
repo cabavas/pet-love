@@ -1,1 +1,140 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    overflow-x: hidden;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+app-header {
+    flex-shrink: 0;
+  }
+  
+  app-footer {
+    flex-shrink: 0;
+  }
+
+
+$custom-primary-palette: (
+    50 : #eaf5ea,
+    100 : #c9e7cb,
+    200 : #a6d7a8,
+    300 : #82c785,
+    400 : #67bb6a,
+    500 : #4caf50,
+    600 : #45a849,
+    700 : #3c9f40,
+    800 : #339637,
+    900 : #248627,
+    A100 : #c5ffc7,
+    A200 : #92ff95,
+    A400 : #5fff64,
+    A700 : #46ff4b,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$custom-accent-palette: (
+    50 : #f0fafe,
+    100 : #d9f2fe,
+    200 : #c0eafd,
+    300 : #a7e1fc,
+    400 : #94dafb,
+    500 : #81d4fa,
+    600 : #79cff9,
+    700 : #6ec9f9,
+    800 : #64c3f8,
+    900 : #51b9f6,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #eef8ff,
+    A700 : #d4efff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$custom-warn-palette: (
+    50 : #ffeee8,
+    100 : #ffd4c7,
+    200 : #ffb8a1,
+    300 : #ff9b7b,
+    400 : #ff855f,
+    500 : #ff7043,
+    600 : #ff683d,
+    700 : #ff5d34,
+    800 : #ff532c,
+    900 : #ff411e,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffd4ce,
+    A700 : #ffbeb4,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$custom-primary: mat.define-palette($custom-primary-palette);
+$custom-accent: mat.define-palette($custom-accent-palette);
+$custom-warn: mat.define-palette($custom-warn-palette);
+
+$custom-theme: mat.define-light-theme((color: (primary: $custom-primary,
+                accent: $custom-accent,
+                warn: $custom-warn ),
+        ));
+
+@include mat.all-component-themes($custom-theme);
